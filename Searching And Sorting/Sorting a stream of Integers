@@ -1,0 +1,49 @@
+## to handle a stream of integers and sort it
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+	    int[] arr  = new int[N];
+	    for(int i=0;i<N;i++){
+	        arr[i]= sc.nextInt();
+	    }
+	    Stream(arr,N);
+    }
+    public static void Stream(int[] arr, int N){
+        List<Integer> list = new ArrayList<Integer>();
+        for(int i=0;i<N;i++){
+            sort(list, arr[i]);
+            for(int j=0;j<list.size();j++){
+                System.out.print(list.get(j)+" ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void sort(List<Integer>list, int num){
+        int pos = -1;
+        for(int i=0;i<list.size();i++){
+            if(list.get(i)>=num){
+                pos = i;
+                break;
+            }
+        }
+        if(pos==-1){
+            list.add(num);
+        }
+        else{
+            list.add(pos,num);
+        }
+    }
+    
+}
