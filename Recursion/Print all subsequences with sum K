@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main
+{   
+    public static void sumK(int indx, List<Integer> list, int[] arr, int sum, int s){
+        if(indx==arr.length){
+            if(s==sum){
+                System.out.println(list);
+            
+            }
+                return;
+        }
+        
+        list.add(arr[indx]);
+        s+=arr[indx];
+        sumK(indx+1, list, arr, sum, s);
+        list.remove(list.size()-1);
+        s-=arr[indx];
+        sumK(indx+1, list,arr, sum, s);
+    }
+	public static void main(String[] args) {
+	    int[] arr = {1,2,1,3};
+	    List<Integer> list = new ArrayList<>();
+	    sumK(0, list, arr, 5,0);
+	}
+}
